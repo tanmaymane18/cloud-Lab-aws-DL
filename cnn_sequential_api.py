@@ -56,9 +56,7 @@ model.compile(optimizer=optimizer, loss=loss, metrics=['acc'])
 model.summary()
 
 with tf.device('/device:GPU:0'):
-  model.fit(x=x_train, y=y_train, epochs=10, validation_data=(x_test, y_test), batch_size=64)
+  model.fit(x=x_train, y=y_train, epochs=20, validation_data=(x_test, y_test), batch_size=64)
 
 with tf.device('/device:GPU:0'):
   model.evaluate(x=x_test, y=y_test, batch_size=128)
-
-!wget https://storage.googleapis.com/laurencemoroney-blog.appspot.com/rps.zip
