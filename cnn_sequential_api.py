@@ -32,7 +32,7 @@ model = keras.Sequential([
 #optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
 #loss = tf.keras.losses.CategoricalCrossentropy()
 #auc = tf.keras.metrics.AUC()
-model.compile(optimizer='adam', loss='categorical_cross_entropy', metrics=['acc'])
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['acc'])
 
 model.summary()
 
