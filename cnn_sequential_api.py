@@ -29,8 +29,8 @@ model = keras.Sequential([
 ])
 
 
-optimizer = tf.optimizers.Adam(learning_rate=0.001)
-loss = tf.losses.CategoricalCrossentropy()
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
+loss = tf.keras.losses.CategoricalCrossentropy()
 auc = tf.keras.metrics.AUC()
 model.compile(optimizer=optimizer, loss=loss, metrics=['acc'])
 
