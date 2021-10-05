@@ -37,7 +37,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['acc']
 model.summary()
 
 with tf.device('/device:GPU:0'):
-  model.fit(x=x_train, y=y_train, epochs=20, validation_data=(x_test, y_test), batch_size=64)
+  model.fit(x=x_train, y=y_train, epochs=20, validation_data=(x_test, y_test), steps_per_epoch=64)
 
 with tf.device('/device:GPU:0'):
-  model.evaluate(x=x_test, y=y_test, batch_size=128)
+  model.evaluate(x=x_test, y=y_test, steps_per_epoch=128)
