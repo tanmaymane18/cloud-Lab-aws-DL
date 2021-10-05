@@ -29,15 +29,15 @@ model = keras.Sequential([
 ])
 
 
-#optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
-#loss = tf.keras.losses.CategoricalCrossentropy()
-#auc = tf.keras.metrics.AUC()
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['acc'])
+optimizer = tf.optimizers.Adam(learning_rate=0.001)
+loss = tf.losses.CategoricalCrossentropy()
+auc = tf.keras.metrics.AUC()
+model.compile(optimizer=optimizer, loss=loss, metrics=['acc'])
 
 model.summary()
 
 with tf.device('/device:GPU:0'):
-  model.fit(x=x_train, y=y_train, epochs=20, validation_data=(x_test, y_test), steps_per_epoch=64)
+  model.fit(x=x_train, y=y_train, epochs=10, validation_data=(x_test, y_test), batch_size=64)
 
 with tf.device('/device:GPU:0'):
-  model.evaluate(x=x_test, y=y_test, steps_per_epoch=128)
+  model.evaluate(x=x_test, y=y_test, batch_size=128)
